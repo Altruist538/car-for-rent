@@ -1,7 +1,8 @@
 export const header = () => {
    
     return (
-        <Button type="button" variant="outlined">
+
+        <button type="button" >
           Register
-        </Button>
+        </button>
     )}
