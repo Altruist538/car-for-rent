@@ -1,16 +1,22 @@
+import { Route, Routes } from "react-router-dom";
+import { lazy } from 'react';
+
+
+const HomePage = lazy(() => import('../pages/Home'));
+const CatalogPage = lazy(() => import('../pages/catalog'));
+const FavoritesPage = lazy(() => import('../pages/favorites'));
 export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+  return (<>
+    
+    <div>
+      
+    {/* <Header /> */}
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/catalog" element={<CatalogPage />} />
+      <Route path="/favorites" element={<FavoritesPage />} />
+    </Routes>
+  </div>
+  </>
+);
 };
