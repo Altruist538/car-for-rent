@@ -5,6 +5,5 @@ of movement. (./assets/template-step-1.png)
 
 На следующем шаге откроется страница создания нового репозитория. Заполни поле
 его имени, убедись что репозиторий публичный, после чего нажми кнопку
-`«Create repository from template»`.
 
-![Creating repo from a template step 2](./public/faviconCar.png)
+![Car](./public/faviconCar.png)
