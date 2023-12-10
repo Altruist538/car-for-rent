@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import { Header } from './Header/Header.js';
+import { Header } from './Header/Header';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const CatalogPage = lazy(() => import('../pages/catalog'));
