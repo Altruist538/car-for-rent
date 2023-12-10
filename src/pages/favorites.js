@@ -1,13 +1,5 @@
-// import { Helmet } from 'react-helmet';
-// import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+const Favorites = () => {
+  return <div>Favorites</div>;
+};
 
-export default function favorites() {
-  return (
-    <div>
-      {/* <Helmet>
-        <title>Registration</title>
-      </Helmet>
-      <RegisterForm /> */}
-    </div>
-  );
-}
+export default Favorites;

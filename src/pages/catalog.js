@@ -1,11 +1,12 @@
+import { Container } from './pages.styled';
+import { Gallery } from 'components/gallery/gallery';
 
-import { Container} from './pages.styled';
-import { Gallery } from "components/gallery/gallery";
-
-export default function catalog() {
+const Catalog = () => {
   return (
     <Container>
-     <Gallery/>
+      <Gallery />
     </Container>
   );
-}
+};
+
+export default Catalog;
