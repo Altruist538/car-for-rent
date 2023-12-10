@@ -9,7 +9,7 @@ import {
   SearchButton,
 } from './FiltersCar.styled';
 import listCars from '../../data/makes.json';
-export const FiltersCar = () => {
+export const FiltersCar = ({ brandFilterChange }) => {
   const priceOptions = [];
   for (let price = 10; price <= 500; price += 10) {
     priceOptions.push(<option key={price} value={`${price} $`} />);
@@ -22,6 +22,7 @@ export const FiltersCar = () => {
           name="car"
           list="carModelSelect"
           placeholder="  Enter the text"
+          onChange={event => brandFilterChange(event.target.value)}
         />
         <datalist id="carModelSelect">
           {listCars.map((car, index) => (

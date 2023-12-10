@@ -4,12 +4,19 @@ import { App } from 'components/App';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from './components/GlobalStyle';
+import { Provider } from 'react-redux';
+import { store, persistor } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/car-for-rent">
-    <React.StrictMode>
-      <App />
-      <GlobalStyle />
-    </React.StrictMode>
-  </BrowserRouter>
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/car-for-rent">
+          <App />
+          <GlobalStyle />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>
 );
