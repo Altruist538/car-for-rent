@@ -2,9 +2,10 @@ import { Route, Routes } from 'react-router-dom';
 // import { lazy } from 'react';
 
 import Home from 'pages/Home';
-import Catalog from 'pages/Catalog';
-import Favorites from 'pages/Favorites';
-import Header from './Header/Header';
+
+import Header from './Header/header';
+import Catalog from 'pages/catalog';
+import Favorites from 'pages/favorites';
 
 // const HomePage = lazy(() => import('../pages/Home'));
 // const CatalogPage = lazy(() => import('../pages/catalog'));

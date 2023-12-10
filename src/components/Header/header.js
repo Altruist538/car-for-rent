@@ -1,4 +1,4 @@
-import { LinkHome, HeaderBlock, LinkPhone } from './Header.styled';
+import { LinkHome, HeaderBlock, LinkPhone } from './header.styled';
 import { Outlet } from 'react-router-dom';
 const Header = () => {
   const number = '+380730000000';
