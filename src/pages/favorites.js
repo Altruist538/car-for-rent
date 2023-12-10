@@ -1,5 +1,6 @@
+import { Title } from './pages.styled';
 const Favorites = () => {
-  return <div>Favorites</div>;
+  return <Title>Favorites</Title>;
 };
 
 export default Favorites;

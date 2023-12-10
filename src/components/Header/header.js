@@ -11,7 +11,7 @@ const Header = () => {
           <LinkHome to="/favorites">Favorites</LinkHome>
         </nav>
         <div>
-          <LinkPhone href={`tel: ${number}`}>{number}</LinkPhone>
+          <LinkPhone href={`tel: ${number}`}>{`tel: ${number}`}</LinkPhone>
         </div>
         <Outlet />
       </HeaderBlock>
