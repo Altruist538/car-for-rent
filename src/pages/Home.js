@@ -1,8 +1,8 @@
-import { Container, GoButton, Title, Welcome } from './pages.styled';
+import { Section, GoButton, Title, Welcome } from './pages.styled';
 
 export default function Home() {
   return (
-    <Container>
+    <Section>
       <Title>Welcome to our car rental service!</Title>
 
       <h2>Book a car online in just a few clicks! </h2>
@@ -18,6 +18,6 @@ export default function Home() {
       <nav>
         <GoButton to="/catalog">Go to car selection</GoButton>
       </nav>
-    </Container>
+    </Section>
   );
 }
