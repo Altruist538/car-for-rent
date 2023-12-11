@@ -1,4 +1,4 @@
-import { fetchData } from 'components/api/operations';
+import { fetchData } from '../../redux/operations';
 import { useEffect, useState } from 'react';
 import { LoadMoretButton, List, ListItem, Container } from './carList.styled';
 import { FiltersCar } from 'components/FiltersCar/FiltersCar';
@@ -11,13 +11,12 @@ export const CarList = () => {
 
   const pageUp = () => {
     setPage(prevPage => prevPage + 1);
-    console.log(page);
   };
 
   useEffect(() => {
     const fetchCar = async () => {
       const arrayCar = await fetchData(page, limit);
-      console.log(arrayCar);
+
       if (page === 1) {
         return setCarArray(arrayCar);
       }
@@ -28,7 +27,6 @@ export const CarList = () => {
 
   function brandFilterChange(model) {
     const cars = carArray.filter(car => car.make === model);
-    console.log(cars);
     setCarArrayfiltr(cars);
   }
   const arrCars = carArrayFiltr.length !== 0 ? carArrayFiltr : carArray;

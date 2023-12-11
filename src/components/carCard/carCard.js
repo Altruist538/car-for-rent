@@ -1,3 +1,6 @@
+import React from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   ImgCar,
   BlockBigllInfo,
@@ -10,8 +13,10 @@ import {
   BigllInfoPpice,
 } from './carCard.styled';
 import imgDefault from '../../data/car-d.jpg';
-import iconHeart from '../../data/normal.svg';
-// import { FiltersCar } from 'components/FiltersCar/FiltersCar';
+import iconHeart from '../../data/heart.svg';
+import iconHeartActiv from '../../data/heartblue.svg';
+import CarModal from '../Modal/CarModal';
+import { toggleFavorite } from 'redux/favoritesSlice';
 export const CarCard = ({ car }) => {
   const {
     id,
@@ -25,10 +30,51 @@ export const CarCard = ({ car }) => {
     type,
     functionalities,
   } = car;
+
+  const dispatch = useDispatch();
+  const favorites = useSelector(state => state.favorites.items);
+
+  const [isOpenedModal, setIsOpenedModal] = useState(false);
+  const handleToggleModal = () => {
+    setIsOpenedModal(prevState => !prevState);
+    if (isOpenedModal === true) {
+      document.body.style.overflow = 'scroll';
+    }
+    if (isOpenedModal === false) {
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeModal = () => {
+    setIsOpenedModal(false);
+    document.body.style.overflow = 'scroll';
+  };
+
   return (
     <>
+      {isOpenedModal && (
+        <CarModal
+          handleToggleModal={handleToggleModal}
+          closeModal={closeModal}
+          car={car}
+        />
+      )}
       <HeartButton>
-        <HeartImg src={iconHeart} alt={make} />
+        {!favorites.includes(car.id) && (
+          <HeartImg
+            src={iconHeart}
+            alt={make}
+            onClick={() => dispatch(toggleFavorite(car.id))}
+          />
+        )}
+
+        {favorites.includes(car.id) && (
+          <HeartImg
+            src={iconHeartActiv}
+            alt={make}
+            onClick={() => dispatch(toggleFavorite(car.id))}
+          />
+        )}
       </HeartButton>
       <ImgCar src={img || imgDefault} alt={make} />
 
@@ -44,7 +90,9 @@ export const CarCard = ({ car }) => {
       <SmallInfo>
         {type} | {make} | {id} | {functionalities[0]}
       </SmallInfo>
-      <LearnMoretButton>Learn more</LearnMoretButton>
+      <LearnMoretButton type="button" onClick={handleToggleModal}>
+        Learn more
+      </LearnMoretButton>
     </>
   );
 };
